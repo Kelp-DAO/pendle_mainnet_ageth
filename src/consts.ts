@@ -25,23 +25,23 @@ export const PENDLE_POOL_ADDRESSES = {
 	START_BLOCK: 20566985,
 	TREASURY: "0x8270400d528c34e1596ef367eedec99080a1b592",
 	EQB_STAKING: "0x64627901dadb46ed7f275fd4fc87d086cff1e6e3",
-	PENPIE_RECEIPT_TOKEN: "0xa00980abf9b52e5df8b38f3035c874310a7b0ba4",
-	STAKEDAO_RECEIPT_TOKEN: "0xe7f1291f9a270e781a7cdaf244fa650c14e11e65",
+	PENPIE_RECEIPT_TOKEN: "0xd3b6650de413184c7b3721c8898e4673395417d2",
+	STAKEDAO_RECEIPT_TOKEN: "0xd23fccec44923a0c5f7fa19bba89d09eea6416e3",
 	LIQUID_LOCKERS: [
 		{
 			// Penpie
 			address: "0x6e799758cee75dae3d84e09d40dc416ecf713652",
-			receiptToken: "0xa00980abf9b52e5df8b38f3035c874310a7b0ba4",
+			receiptToken: "0xd3b6650de413184c7b3721c8898e4673395417d2",
 		},
 		{
 			// EQB
 			address: "0x64627901dadb46ed7f275fd4fc87d086cff1e6e3",
-			receiptToken: "0x071e9d32a141c05be949bd8bc0473726b33ae935",
+			receiptToken: "0x922a746c87809036bc1691b169bb38ae7a29acb0",
 		},
 		{
 			// STAKEDAO
 			address: "0xd8fa8dc5adec503acc5e026a98f32ca5c1fa289a",
-			receiptToken: "0xe7f1291f9a270e781a7cdaf244fa650c14e11e65",
+			receiptToken: "0xd23fccec44923a0c5f7fa19bba89d09eea6416e3",
 		},
 	],
 };
