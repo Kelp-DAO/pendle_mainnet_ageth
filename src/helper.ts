@@ -46,11 +46,7 @@ export function getSumShareMapping(...shareMappings: ShareMapping[]): ShareMappi
 }
 
 export function getTargetedTimestamp(timestamp: number) {
-    let targetedTimestamp = (timestamp - timestamp % MISC_CONSTS.ONE_DAY_IN_SECONDS + CONFIG.TARGETED_TIMESTAMP);
-    if (targetedTimestamp > timestamp) {
-        targetedTimestamp -= MISC_CONSTS.ONE_DAY_IN_SECONDS;
-    }
-    return targetedTimestamp;
+    return (timestamp - timestamp % MISC_CONSTS.ONE_HOUR_IN_SECONDS);
 }
 
 export async function getTargetedBlock(ctx: EthContext, targetedTimestamp: number): Promise<number> {

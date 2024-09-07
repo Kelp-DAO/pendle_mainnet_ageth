@@ -19,9 +19,8 @@ async function takeGlobalSnapshot(ctx: EthContext, blockNumber: number, timestam
     await takeYTSnapshot(ctx, blockNumber),
     await takeLPSnapshot(ctx, blockNumber)
   );
-
   for (const user in userShares) {
-    ctx.eventLogger.emit("UserDailyShare", {
+    ctx.eventLogger.emit("UserHourlyShare", {
       user,
       share: userShares[user],
       recordedAtTimestamp: timestamp,
@@ -29,7 +28,7 @@ async function takeGlobalSnapshot(ctx: EthContext, blockNumber: number, timestam
     })
   }
 
-  ctx.eventLogger.emit("DailyUpdateBlock", {
+  ctx.eventLogger.emit("HourlyUpdateBlock", {
     recordedAtTimestamp: timestamp,
     recordedAtBlock: blockNumber,
   })
@@ -65,17 +64,15 @@ PendleMarketProcessor.bind({
 }).onTimeInterval(async (blk, ctx) => {
   const timestamp = getUnixTimestamp(ctx.timestamp);
   const targetedTimestamp = getTargetedTimestamp(timestamp);  
-  if (timestamp - targetedTimestamp > MISC_CONSTS.ONE_HOUR_IN_SECONDS) {
+  if (timestamp - targetedTimestamp > 10 * 60) {
     return;
   }
-  
   const targetedBlock = await getTargetedBlock(ctx, targetedTimestamp);
   if (targetedBlock < PENDLE_POOL_ADDRESSES.START_BLOCK) {
     return;
   }
-
   await takeGlobalSnapshot(ctx, targetedBlock, targetedTimestamp);
-}, 60, 60); // one day
+}, 10, 10); // one hour
 
 EQBBaseRewardProcessor.bind({
   address: PENDLE_POOL_ADDRESSES.EQB_STAKING,

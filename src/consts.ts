@@ -13,7 +13,6 @@ export const MISC_CONSTS = {
 export const CONFIG = {
 	BLOCKCHAIN: EthChainId.ETHEREUM,
 	SNAPSHOT_FREQUENCY: 24 * 60, // 1 day in minute
-	TARGETED_TIMESTAMP: 27360,
 	MULTICALL_BATCH: 250,
 };
 
